@@ -1,0 +1,2 @@
+var Observable={subscribe:function(a,b){this.observers=this.observers||{};this.observers[a]=this.observers[a]||[];this.observers[a].push(b)},notify:function(){if(this.observers){var a=this.observers[arguments[0]];if(a){var b=Array.prototype.slice.call(arguments,1);jQuery.each(a,function(e,c){c.apply(null,b)})}}},bubble:function(){var a=this,b=arguments[0];jQuery.each(Array.prototype.slice.call(arguments,1),function(e,c){b.subscribe(c,function(){var d=Array.prototype.slice.call(arguments);d.unshift(c);
+a.notify.apply(a,d)})})}};
