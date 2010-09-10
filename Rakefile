@@ -13,11 +13,11 @@ task :bundle do
     s << File.read("src/#{f}")
   end
   
-  File.open("dist/modelizer-#{version}.js", 'w') do |f|
+  File.open("dist/observable-#{version}.js", 'w') do |f|
     f.write string
   end
   
-  File.open("dist/modelizer-#{version}-min.js", 'w') do |f|
+  File.open("dist/observable-#{version}-min.js", 'w') do |f|
     f.write Closure::Compiler.new.compile(string)
   end
   
