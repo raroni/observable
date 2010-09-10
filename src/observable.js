@@ -4,6 +4,11 @@ var Observable = {
 		this.observers[event] = this.observers[event] || [];
 		this.observers[event].push(callback);
 	},
+	unsubscribe: function(event, callback) {
+	  this.observers[event] = $.grep(this.observers[event], function(e) {
+		  return e != callback;
+	  });
+  },
 	notify: function() {
 		if(this.observers) {
 			var event = arguments[0];
